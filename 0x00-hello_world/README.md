@@ -10,4 +10,5 @@
    - File: 3-name - A script that compiles a C file and creates an executable named cisfun.
    - File: 4-puts.c - A C program that prints exactly "Programming is like building a multilingual puzzle, using the function puts.
    - File: 5-printf.c - A C program that prints exactly "with proper grammar, but the outcome is a piece of art", using the function printf.
+   - File: 6-size.c - A C program that prints the size of various types on the computer it is compiled and run on.
    
