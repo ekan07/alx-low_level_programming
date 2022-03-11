@@ -11,4 +11,6 @@
    - File: 4-puts.c - A C program that prints exactly "Programming is like building a multilingual puzzle, using the function puts.
    - File: 5-printf.c - A C program that prints exactly "with proper grammar, but the outcome is a piece of art", using the function printf.
    - File: 6-size.c - A C program that prints the size of various types on the computer it is compiled and run on.
+   - File: 100-intel - A script that generates the assembly code (Intel syntax) of a C code and save it in an output file main.s.
+   - File: 101-qoute.c - A C program that prints 'and that piece of art is useful" - Dora Korpar, 2015-10-19,' to the standard error.
    
