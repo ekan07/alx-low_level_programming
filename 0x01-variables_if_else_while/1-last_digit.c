@@ -2,9 +2,13 @@
 #include <time.h>
 #include <stdio.h>
 
+/**
+ * main - Prints a text according number
+ *
+ * Return: Always (Success)
+ */
 int main(void)
 {
-	/* betty style doc for function main goes there */
 	int n, last_digit;
 
 	srand(time(0));
@@ -22,7 +26,8 @@ int main(void)
 	}
 	else
 	{
-		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, last_digit);
+		printf(
+			"Last digit of %d is %d and is less than 6 and not 0\n", n, last_digit);
 	}
 	return (0);
 }

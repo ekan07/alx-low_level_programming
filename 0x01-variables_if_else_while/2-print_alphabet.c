@@ -1,8 +1,12 @@
 #include <stdio.h>
 
+/**
+ * main - Prints the alphabetic
+ *
+ * Return: Always (Success)
+ */
 int main(void)
 {
-	/*Prints the alphabetic*/
 	char ch;
 
 	for (ch = 'a'; ch <= 'z'; ch++)
