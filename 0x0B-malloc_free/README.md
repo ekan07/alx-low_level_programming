@@ -1,6 +1,7 @@
 # ALX SOFTWARE ENGINEERING
 
 ### Project: 0x0B. C - malloc, free
+### This directory contains malloc, free
 
 File 0-create_array.c is a function that creates an array of chars, and initializes it with a specific char.
 
