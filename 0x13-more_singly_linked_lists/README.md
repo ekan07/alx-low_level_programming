@@ -17,3 +17,11 @@ File 5-free_listint2.c is a function that frees a listint_t list and sets the he
 File 6-pop_listint.c is a function that deletes the head node of a listint_t linked list, and returns the head node’s data (n).
 
 File 7-get_nodeint.c is a function that returns the nth node of a listint_t linked list.
+
+File 8-sum_listint.c is a function that returns the sum of all the data (n) of a listint_t linked list.
+
+File 9-insert_nodeint.c is a function that inserts a new node at a given position.
+
+File 10-delete_nodeint.c is a function that deletes the node at index index of a listint_t linked list.
+
+File lists.h is the header file containing all these function prototypes and the data structure listint_t.
