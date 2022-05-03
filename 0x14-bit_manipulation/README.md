@@ -16,4 +16,6 @@ File 5-flip_bits.c is a function that returns the number of bits you would need 
 
 File 100-get_endianness.c is a function that checks if the machine is Little Endian or Big Endian.
 
+File 101-password is a password for the program ./crackme3.
+
 File main.h is the header file containing all the function prototypes of this project.
