@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -14,21 +15,21 @@ int main(int argc, char **argv)
 
     if (argc != 3)
     {
-        dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n");
+        dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
         exit(97);
     }
     
     src_fd = open(argv[1], O_RDONLY);
     if (src_fd == -1)
     {
-        dprintf(STDOUT_FILENO, "Error: can't read from file %s\n", argv[1]);
+        dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
         exit(98);
     }
 
     dest_fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
     if (dest_fd == -1)
     {
-        dprintf(STDOUT_FILENO, "Error: can't write to file %s", argv[2]);
+        dprintf(STDERR_FILENO, "Error: can't write to file %s", argv[2]);
         exit(99);
     }
 
@@ -36,13 +37,13 @@ int main(int argc, char **argv)
     {
         if (write(dest_fd, buff, read_byte) != read_byte)
         {
-            dprintf(STDOUT_FILENO, "Error: can't write to file %s", argv[2]);
+            dprintf(STDERR_FILENO, "Error: can't write to file %s", argv[2]);
             exit(99);
         }
     }
     if (read_byte == -1)
     {
-        dprintf(STDOUT_FILENO, "Error: can't read from file %s\n", argv[1]);
+        dprintf(STDERR_FILENO, "Error: can't read from file %s\n", argv[1]);
         exit(98);
     }
     
