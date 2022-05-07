@@ -28,7 +28,7 @@ void _error(int e, char *filename)
 }
 
 /**
- * _error - Read file.
+ * _error_int - Read file.
  * @e: Error number
  * @fd: File name
  */
