@@ -27,6 +27,11 @@ void _error(int e, char *filename)
 	}
 }
 
+/**
+ * _error - Read file.
+ * @e: Error number
+ * @fd: File name
+ */
 void _error_int(int e, int fd)
 {
 	if (e == 100)
