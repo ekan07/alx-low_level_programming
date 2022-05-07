@@ -58,19 +58,22 @@ int main(int argc, char **argv)
 	if (src_fd == -1)
 		_error(98, argv[1]);
 	dest_fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (dest_fd == -1)
-		_error(99, argv[2]);
-
 	while ((read_byte = read(src_fd, buff, BUFF_SIZE)) > 0)
 	{
-		if (write(dest_fd, buff, read_byte) != read_byte)
+		if (dest_fd == -1 || write(dest_fd, buff, read_byte) != read_byte)
+		{
+			close(src_fd);
 			_error(99, argv[2]);
+		}
 	}
 	if (read_byte == -1)
 		_error(98, argv[1]);
 
 	if (close(src_fd) < 0)
+	{
+		close(dest_fd);
 		_error_int(100, src_fd);
+	}
 	if (close(dest_fd) < 0)
 		_error_int(100, dest_fd);
 
