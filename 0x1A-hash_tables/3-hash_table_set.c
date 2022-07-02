@@ -1,8 +1,8 @@
 #include "hash_tables.h"
 
 /**
- * add_node - adds a new node at the beginning of a linked list
- * @head: double pointer to the hash_node_t list
+ * hash_table_set - adds a new node at the beginning of a linked list
+ * @ht: double pointer to the hash_node_t list
  * @key: new key to add in the node
  * @value: value to add in the node
  *
@@ -23,7 +23,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_hnode->value = strdup(value);
 	new_hnode->next = NULL;
 
-	hash_index = key_index((const unsigned char *)key,ht->size);
+	hash_index = key_index((const unsigned char *)key, ht->size);
 	if (!ht)
 		ht->array[hash_index] = new_hnode;
 	else
