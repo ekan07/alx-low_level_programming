@@ -11,7 +11,7 @@
  *
  * @key: The key, string
  * The key is unique in the HashTable
- * @vslue: The value corresponding to a key
+ * @value: The value corresponding to a key
  * @next: A pointer to the next node of the list
  */
 typedef struct hash_node_s
