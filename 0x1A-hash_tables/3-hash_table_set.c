@@ -31,14 +31,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[hash_index] = new_hnode;
 	else
 	{
+		
 		for (curs = head; curs; curs = curs->next)
 		{
 			if (strcasecmp(curs->key, key) == 0)
 			{
-				free(cursor->value);
 				curs->value = strdup(value)
 				return (1);
 			}
+			
 		}
 
 		new_hnode->next = ht->array[hash_index];
