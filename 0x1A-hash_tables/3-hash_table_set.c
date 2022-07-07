@@ -33,8 +33,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		for (curs = head; curs; curs = curs->next)
 		{
-			if (strcasecmp(curs->key, (char *)key) == 0)
+			if (strcasecmp(curs->key, key) == 0)
 			{
+				free(cursor->value);
 				curs->value = strdup(value)
 				return (1);
 			}
