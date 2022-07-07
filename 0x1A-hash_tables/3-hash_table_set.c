@@ -1,4 +1,6 @@
 #include "hash_tables.h"
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * hash_table_set - adds a new node at the beginning of a linked list
