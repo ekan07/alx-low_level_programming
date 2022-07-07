@@ -1,51 +1,44 @@
 #include "hash_tables.h"
-#include <stdlib.h>
-#include <string.h>
 
 /**
- * hash_table_set - adds an element to the hash table
- * @ht: The hash table
- * @key: The key of the new element
- * @value: The value of the new element
+ * hash_table_set - adds a new node at the beginning of a linked list
+ * @ht: double pointer to the hash_node_t list
+ * @key: new key to add in the node
+ * @value: value to add in the node
  *
- * Return: 1 on success, 0 on failure
+ * Return: the address of the new element, or NULL if it fails
  */
-int
-hash_table_set(hash_table_t *ht, const char *key, const char *value)
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int index = 0;
-	hash_node_t *new_hash_node = NULL;
-	hash_node_t *cursor = NULL;
+	unsigned long int hash_index = 0;
+	hash_node_t *head = NULL;
+	hash_node_t *new_hnode = NULL;
 
 	if (!ht || !key || !(*key) || !value)
 		return (0);
 
-	index = key_index((unsigned char *)key, ht->size);
-	cursor = ht->array[index];
-
+	hash_index = key_index((unsigned char *)key, ht->size);
+	head = ht->array[hash_index]
 	/* check if key exists */
-	while (cursor && strcmp(cursor->key, key) != 0)
-		cursor = cursor->next;
-
+	while (head && strcmp(head->key, key) != 0)
+		head = head->next;
 	/* update value if key already exists */
-	if (cursor)
+	if (head)
 	{
-		free(cursor->value);
-		cursor->value = strdup(value);
+		free(head->value);
+		head->value = strdup(value)
 		return (1);
 	}
 
-	/* add new node if key not found */
-
-	new_hash_node = malloc(sizeof(*new_hash_node));
-	if (!new_hash_node)
+	/* create and add new node to hash table if key not found */
+	new_hnode = malloc(sizeof(hash_node_t));
+	if (!new_hnode)
 		return (0);
+	new_hnode->key = strdup(key);
+	new_hnode->value = strdup(value);
+	new_hnode->next = ht->array[hash_index];
 
-	new_hash_node->key = strdup(key);
-	new_hash_node->value = strdup(value);
-
-	new_hash_node->next = ht->array[index];
-	ht->array[index] = new_hash_node;
+	ht->array[hash_index] = new_hnode;
 
 	return (1);
 }
