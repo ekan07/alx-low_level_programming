@@ -1,34 +1,32 @@
 #include "hash_tables.h"
-#include <stdlib.h>
-#include <string.h>
 
 /**
  * hash_table_set - adds a new node at the beginning of a linked list
- * @ht: double pointer to the hash_node_t list
- * @key: new key to add in the node
- * @value: value to add in the node
+ * @ht: The hash table
+ * @key: key of the new element
+ * @value: value of the new element
  *
- * Return: the address of the new element, or NULL if it fails
+ * Return: 1 on success, or 0 on failure
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int hash_index = 0;
-	hash_node_t *head = NULL;
+	hash_node_t *curs = NULL;
 	hash_node_t *new_hnode = NULL;
 
 	if (!ht || !key || !(*key) || !value)
 		return (0);
 
 	hash_index = key_index((unsigned char *)key, ht->size);
-	head = ht->array[hash_index]
+	curs = ht->array[hash_index];
 	/* check if key exists */
-	while (head && strcmp(head->key, key) != 0)
-		head = head->next;
+	while (curs && strcmp(curs->key, key) != 0)
+		curs = curs->next;
 	/* update value if key already exists */
-	if (head)
+	if (curs)
 	{
-		free(head->value);
-		head->value = strdup(value)
+		free(curs->value);
+		curs->value = strdup(value);
 		return (1);
 	}
 
