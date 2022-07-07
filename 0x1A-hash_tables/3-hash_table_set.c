@@ -12,7 +12,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int hash_index;
 	hash_node_t *head;
-	hash_node_t *curs;
 	hash_node_t *new_hnode;
 
 	if (ht == NULL || strlen(key) == 0)
@@ -31,17 +30,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[hash_index] = new_hnode;
 	else
 	{
-		
-		for (curs = head; curs; curs = curs->next)
-		{
-			if (strcasecmp(curs->key, key) == 0)
-			{
-				curs->value = strdup(value)
-				return (1);
-			}
-			
-		}
+		/* check if key exists */
+		while (strcmp(head->key, key) != 0)
+			head = head->next;
 
+		if (head)
+		{
+			head->value = strdup(value)
+			return (1);
+		}
 		new_hnode->next = ht->array[hash_index];
 		ht->array[hash_index] = new_hnode;
 	}
